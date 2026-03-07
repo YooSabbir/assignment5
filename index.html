@@ -20,7 +20,7 @@
 </head>
 
 <body class="min-h-screen max-w-md bg-base-200 mx-auto">
-    <section class="space-y-4">
+    <section class="space-y-4 pt-15">
         <div class="text-center pt-10">
             <div class="flex justify-center h-20 mb-3"><img src="assets/github-logo.png" alt=""></div>
             <h2 class="font-bold text-[20px]">Github Issues Tracker</h2>
@@ -29,14 +29,14 @@
         <div class="flex justify-center items-center">
             <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full ml-8 mr-8">
                 <label class="label">Username</label>
-                <input type="text" class="input  w-full" placeholder="Enter Username" />
+                <input value="admin" id="username" type="text" class="input  w-full" placeholder="Enter Username" />
                 <p class="text-[#4a00ff]">Default: admin</p>
 
                 <label class="label">Password</label>
-                <input type="password" class="input  w-full" placeholder="Enter Password" />
+                <input value="admin123" id="password" type="password" class="input  w-full" placeholder="Enter Password" />
                 <p class="text-[#4a00ff]">Password: admin123</p>
 
-                <button class="btn btn-primary mt-4">Sign in</button>
+                <button id="signin" class="btn btn-primary mt-4">Sign in</button>
             </fieldset>
         </div>
         <div class="divider text-[15px]">OR</div>
@@ -46,6 +46,7 @@
             <p class="text-[12px]"><span class="font-bold">Password:</span> admin123</p>
         </div>
     </section>
+    <script src="script/login.js"></script>
 </body>
 
 </html>
