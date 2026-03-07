@@ -6,7 +6,6 @@ document.getElementById("signin").addEventListener("click", function () {
     const password = passInput.value;
     console.log(password)
     if(username === "admin" && password === "admin123"){
-        alert("login successful");
         window.location.assign("./home.html");
     } else{
         alert("login failed");
