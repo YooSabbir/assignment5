@@ -111,3 +111,26 @@ function toggleEffect() {
 
 
 loadIssues()
+
+
+document.getElementById("searchBtn").addEventListener("click", function () {
+
+    const searchInput = document.getElementById("searchInput");
+    const searchValue = searchInput.value.toLowerCase();
+
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`;
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((json) => {
+
+            const alldata = json.data;
+
+            const filterData = alldata.filter(data =>
+                data.title.toLowerCase().includes(searchValue)
+            );
+            count.innerText = filterData.length;
+            displayIssues(filterData);
+        });
+
+});
