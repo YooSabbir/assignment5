@@ -30,11 +30,12 @@
                 <div class="join-item">
                     <label class="input flex items-center gap-2">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input id="searchInput" type="text" class="grow w-full" placeholder="Search issues..." required />
+                        <input id="searchInput" type="text" class="grow w-full" placeholder="Search issues..."
+                            required />
                     </label>
                 </div>
 
-                <button id="searchBtn" class="btn btn-primary join-item"><i class="fa-solid fa-plus t-[7px]"></i> New issue</button>
+                <button id="searchBtn" class="btn btn-primary join-item">Search</button>
             </div>
         </nav>
     </header>
@@ -80,7 +81,7 @@
             <!-- Cards Section -->
             <section>
                 <div id="all-card-container"
-                    class="bg-[#f1f5f9] p-6 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+                    class="bg-[#f1f5f9] p-6 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
 
                     <!-- Card -->
                 </div>
@@ -90,6 +91,25 @@
         </div>
 
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box max-w-2xl">
+
+            <div id="modal-container">
+
+            </div>
+
+            <!-- Close Button -->
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+
+        </div>
+    </dialog>
+    <!-- <img src="" alt=""> -->
 
     <script src="script/index.js"></script>
 </body>
