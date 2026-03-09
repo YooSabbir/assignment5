@@ -1,6 +1,18 @@
 let allIssues = []
 
+const manageSpiner = (status) =>{
+    if(status === true){
+        document.getElementById("spiner").classList.remove("hidden")
+        document.getElementById("all-card-container").classList.add("hidden")
+    } else{
+        document.getElementById("all-card-container").classList.remove("hidden")
+        document.getElementById("spiner").classList.add("hidden")
+    }
+}
+
+
 const loadIssues = () => {
+    manageSpiner(true);
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then((res) => res.json())
         .then((json) => {
@@ -104,7 +116,7 @@ const displayIssues = (issues) => {
 
         card.innerHTML =
         `
-            <div onclick="loadIssuedetail(${issue.id})" class="bg-[#f8fafc] border-t-5 ${borderColor} rounded-lg shadow-sm p-4 space-y-3">
+            <div onclick="loadIssuedetail(${issue.id})" class="bg-[#f8fafc] border-t-5 ${borderColor} rounded-lg shadow-sm p-4 space-y-5 cursor-pointer h-68">
                     <div class="flex justify-between items-center">
                         <div>
                         <img class="h-6" src="${img}" alt="">
@@ -132,6 +144,7 @@ const displayIssues = (issues) => {
         `
         cardContainer.append(card)
     }
+    manageSpiner(false); 
 }
 
 let btnAll = document.getElementById("btn-all")
@@ -140,8 +153,13 @@ let btnClosed = document.getElementById("btn-closed")
 let count = document.getElementById("count")
 // btn toggle effect ....
 document.getElementById("btn-all").addEventListener("click", function () {
-    displayIssues(allIssues)
-    count.innerText = allIssues.length;
+    manageSpiner(true);
+    setTimeout(() => {
+
+        displayIssues(allIssues)
+        count.innerText = allIssues.length;
+
+    }, 100);
 
     btnAll.classList.remove('btn-primary')
     btnOpened.classList.remove('btn-primary')
@@ -151,9 +169,15 @@ document.getElementById("btn-all").addEventListener("click", function () {
 
 })
 document.getElementById("btn-open").addEventListener("click", function () {
-    const openIssues = allIssues.filter(issue => issue.status === "open")
-    count.innerText = openIssues.length;
-    displayIssues(openIssues)
+    manageSpiner(true);
+
+    setTimeout(() => {
+
+        const openIssues = allIssues.filter(issue => issue.status === "open")
+        count.innerText = openIssues.length;
+        displayIssues(openIssues)
+
+    }, 100);
 
     btnAll.classList.remove('btn-primary')
     btnOpened.classList.remove('btn-primary')
@@ -162,9 +186,15 @@ document.getElementById("btn-open").addEventListener("click", function () {
     btnOpened.classList.add('btn-primary')
 })
 document.getElementById("btn-closed").addEventListener("click", function () {
-    const closedIssues = allIssues.filter(issue => issue.status === "closed")
-    count.innerText = closedIssues.length;
-    displayIssues(closedIssues)
+    manageSpiner(true);
+
+   setTimeout(() => {
+
+        const closedIssues = allIssues.filter(issue => issue.status === "closed")
+        count.innerText = closedIssues.length;
+        displayIssues(closedIssues)
+
+    }, 100);
 
     btnAll.classList.remove('btn-primary')
     btnOpened.classList.remove('btn-primary')
@@ -177,7 +207,7 @@ loadIssues()
 
 // search ''''
 document.getElementById("searchBtn").addEventListener("click", function () {
-
+    manageSpiner(true);
     const searchInput = document.getElementById("searchInput");
     const searchValue = searchInput.value.toLowerCase();
 
