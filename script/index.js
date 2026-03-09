@@ -66,7 +66,7 @@ const displaySingleIssue = (single) => {
         <div>
             <p class="text-sm text-gray-500">Assignee:</p>
             <p class="font-semibold">
-                ${single.assignee ? single.assignee : "Not Assigned"}
+                ${single.author ? single.author : "Not Assigned"}
             </p>
         </div>
 
@@ -126,7 +126,7 @@ const displayIssues = (issues) => {
 
                     <div class="flex justify-between text-xs text-gray-500">
                         <p>#${issue.id} by ${issue.author}</p>
-                        <p>${issue.updatedAt}</p>
+                        <p>${issue.createdAt}</p>
                     </div>
             </div>
         `
